@@ -1,0 +1,145 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>br.com.ufcg.lsd</groupId>
+  <artifactId>clienteTeste</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>clienteTeste</name>
+  <description>clienteTeste</description>
+
+	<repositories>
+		<repository>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>central</id>
+			<name>Maven Repository</name>
+			<url>http://repo1.maven.org/maven2</url>
+		</repository>
+		<repository>
+			<id>spring-milestones</id>
+			<url>http://repo.spring.io/libs-milestone/</url>
+		</repository>
+		<repository>
+			<id>maven2-repository.dev.java.net</id>
+			<name>Java.net Repository for Maven</name>
+			<url>http://download.java.net/maven/2/</url>
+		</repository>
+		<repository>
+			<id>jboss</id>
+			<url>http://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+		</repository>
+		<repository>
+			<id>maven-restlet</id>
+			<name>Restlet repository</name>
+			<url>http://maven.restlet.com</url>
+		</repository>
+	</repositories>
+  
+  <!-- <dependencies>
+  	<dependency>
+    	<groupId>org.glassfish.jersey.core</groupId>
+    	<artifactId>jersey-client</artifactId>
+    	<version>2.21</version>
+	</dependency>
+	
+	<dependency>
+    <groupId>org.glassfish.jersey.connectors</groupId>
+    <artifactId>jersey-grizzly-connector</artifactId>
+    <version>2.21</version>
+</dependency>
+ 
+<dependency>
+    <groupId>org.glassfish.jersey.connectors</groupId>
+    <artifactId>jersey-apache-connector</artifactId>
+    <version>2.21</version>
+</dependency>
+ 
+<dependency>
+    <groupId>org.glassfish.jersey.connectors</groupId>
+    <artifactId>jersey-jetty-connector</artifactId>
+    <version>2.21</version>
+</dependency>
+
+  	<dependency>
+  		<groupId>com.sun.jersey.contribs</groupId>
+  		<artifactId>jersey-multipart</artifactId>
+  		<version>1.19</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.glassfish.jersey.media</groupId>
+  		<artifactId>jersey-media-multipart</artifactId>
+  		<version>2.19</version>
+  	</dependency>
+  </dependencies> -->
+  
+  <properties>
+	<jersey2.version>2.19</jersey2.version>
+	<jaxrs.version>2.0.1</jaxrs.version>
+</properties>
+	<dependencies><!-- JAX-RS -->
+		<dependency>
+			<groupId>javax.ws.rs</groupId>
+			<artifactId>javax.ws.rs-api</artifactId>
+			<version>${jaxrs.version}</version>
+		</dependency><!-- Jersey 2.19 -->
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-servlet</artifactId>
+			<version>${jersey2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-server</artifactId>
+			<version>${jersey2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>${jersey2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-multipart</artifactId>
+			<version>${jersey2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.connectors</groupId>
+			<artifactId>jersey-grizzly-connector</artifactId>
+			<version>2.21</version>
+		</dependency>
+		
+		<dependency>
+       	 	<groupId>org.restlet.jse</groupId>
+      	  	<artifactId>org.restlet</artifactId>
+        	<version>2.3.4</version>
+    	</dependency>
+    	
+    	<dependency>
+			<groupId>org.restlet.jse</groupId>
+			<artifactId>org.restlet.ext.jackson</artifactId>
+			<version>2.3.4</version>
+		</dependency>
+		
+		<dependency>
+		<groupId>org.restlet.jee</groupId>
+		<artifactId>org.restlet</artifactId>
+		<version>2.2.0</version>
+		<type>pom.lastUpdated</type>
+	</dependency>
+	
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>javax.servlet-api</artifactId>
+		<version>3.1.0</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.restlet.jee</groupId>
+		<artifactId>org.restlet.ext.fileupload</artifactId>
+		<version>2.3.4</version>
+	</dependency>
+		
+	
+	</dependencies>
+  
+</project>
