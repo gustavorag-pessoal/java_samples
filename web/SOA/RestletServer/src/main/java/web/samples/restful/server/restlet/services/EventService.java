@@ -1,5 +1,6 @@
 package web.samples.restful.server.restlet.services;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -22,22 +23,24 @@ public class EventService {
 	private ReentrantReadWriteLock eventsLock = new ReentrantReadWriteLock();
 	private EventGenerator eventGenerator = new EventGenerator();
 	
-	private EventRepository eventRepository;
+	//private EventRepository eventRepository;
 	
 	private Properties prop;
 	
 	private int maxEvents = 1;
 	
+	List<Event> events = new ArrayList<Event>();
+	
 	public EventService(int maxEvents, Properties prop) throws Exception{
 		this.maxEvents = maxEvents;
 		this.prop = prop;
-		this.eventRepository = new EventRepository();
+		//this.eventRepository = new EventRepository();
 		this.mountEventTypeList();
 		this.startEventMonitor();
 	}
 	
 	protected void startEventMonitor(){
-		eventsMonitor.scheduleAtFixedRate(eventGenerator, 60000, 60000);
+		eventsMonitor.scheduleAtFixedRate(eventGenerator, 0, 2000);
 	}
 	
 	protected void stopEventMonitor(){
@@ -65,13 +68,12 @@ public class EventService {
 			eventsLock.writeLock().lock();
 			eventsLock.readLock().lock();
 			
-			List<Event> events = eventRepository.listAllEvents();
-			
+			//List<Event> events = eventRepository.listAllEvents();
 			try {
 
 				if (events!= null && events.size() == maxEvents) {
-					events.remove(maxEvents - 1);
-					events.remove(maxEvents - 2);
+					events.remove(0);
+					events.remove(1);
 				}
 				while (events.size() < maxEvents) {
 					
@@ -92,7 +94,7 @@ public class EventService {
 
 				}
 				
-				eventRepository.updateEvents(events);
+				//eventRepository.updateEvents(events);
 				
 			} finally {
 				eventsLock.writeLock().unlock();
@@ -110,8 +112,9 @@ public class EventService {
 		this.eventTypeMap = eventTypeMap;
 	}
 
-	protected List<Event> getEvents() {
-		return eventRepository.listAllEvents();
+	public List<Event> getEvents() {
+		//return eventRepository.listAllEvents();
+		return events;
 	}
 
 
